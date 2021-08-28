@@ -3,9 +3,11 @@
 # =========================================================================
 
 import sys
+import os
 from random import randint
 from MineSweeperBoard import *
-import lib.python3.PUJ.Model.Logistic as PUJLOG
+sys.path.append('/Users/Gio0/Develop/Python/Buscaminas/PUJ-Buscaminas')
+from lib.python3.PUJ.Model.Logistic import Logistic as PujLog
 
 # -------------------------------------------------------------------------
 if len(sys.argv) < 4:

@@ -1,11 +1,11 @@
-## =========================================================================
-## @author Leonardo Florez-Valencia (florez-l@javeriana.edu.co)
-## =========================================================================
+# =========================================================================
+# @author Leonardo Florez-Valencia (florez-l@javeriana.edu.co)
+# =========================================================================
 
 import sys
 from MineSweeperBoard import *
 
-## -------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 if len(sys.argv) < 4:
     print("Usage: python", sys.argv[0], "width height mines")
     sys.exit(1)
@@ -32,4 +32,4 @@ elif board.have_lose():
     print("You lose :-(")
 # end if
 
-## eof - $RCSfile$
+# eof - $RCSfile$
