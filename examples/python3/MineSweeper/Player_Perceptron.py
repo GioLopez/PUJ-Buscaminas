@@ -32,7 +32,6 @@ while not board.have_won() and not board.have_lose():
     print(board)
 
 
-
     # i = randint(0, board.width() - 1)
     # j = randint(0, board.height() - 1)
     # board.click(j, i)
