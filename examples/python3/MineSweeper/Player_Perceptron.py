@@ -18,12 +18,28 @@ height = int(sys.argv[2])
 mines = int(sys.argv[3])
 board = MineSweeperBoard(width, height, mines)
 
-weights = [-0.700856, -0.44208981, 1.4617903, -0.2093631, -0.17128559, 0.8111405, -0.29084023, -0.02053596]
-bias = 0.45839453
+weights = [-0.38564548, -4.19527307, 0.48126624, 0.25850804, -1.46453883, -2.66257381, -0.28437442, 8.02342586, -7.00469692, 1.55610172, 2.82969498, -3.10644083, 2.37723717, 3.49617572, 2.97081675, 1.37867055, -3.5449626, 1.96189007, -0.30941269, -1.20977446, -1.84815403, 2.18323952, -3.86809174, -2.30665896]
+bias = 0.68268195
 logistic_model = PujLogistic(weights, bias)
 
 patches = [[9 for row in range(height)] for columns in range(width)]
 neighbours = [
+    [-2, -2],
+    [-2, -1],
+    [-2, 0],
+    [-2, 1],
+    [-2, 2],
+    [-1, 2],
+    [0, 2],
+    [1, 2],
+    [2, 2],
+    [2, 1],
+    [2, 0],
+    [2, -1],
+    [2, -2],
+    [1, -2],
+    [0, -2],
+    [-1, -2],
     [-1, -1],
     [-1, 0],
     [-1, 1],
@@ -31,7 +47,7 @@ neighbours = [
     [1, 1],
     [1, 0],
     [1, -1],
-    [0, -1],
+    [0, -1]
 ]
 
 
@@ -51,7 +67,7 @@ while not board.have_won() and not board.have_lose():
                     neigh_row = row + neigh[1]
 
                     if neigh_column < 0 or neigh_row < 0 or neigh_column >= width or neigh_row >= height:
-                        list_neighbours.append(9)
+                        list_neighbours.append(10)
                     else:
                         list_neighbours.append(patches[neigh_column][neigh_row])
 

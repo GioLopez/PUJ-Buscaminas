@@ -1,4 +1,5 @@
 build*
+.idea
 Sandbox.*
 *.o
 __pycache__
