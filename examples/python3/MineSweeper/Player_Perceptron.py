@@ -18,8 +18,8 @@ height = int(sys.argv[2])
 mines = int(sys.argv[3])
 board = MineSweeperBoard(width, height, mines)
 
-weights = [-0.67425597, -0.25557734,  1.21907006, -0.5388088,  -0.84763563,  1.2426736, -0.08496626, -0.07428249 ]
-bias = 0.06357287
+weights = [-0.700856, -0.44208981, 1.4617903, -0.2093631, -0.17128559, 0.8111405, -0.29084023, -0.02053596]
+bias = 0.45839453
 logistic_model = PujLogistic(weights, bias)
 
 patches = [[9 for row in range(height)] for columns in range(width)]
@@ -43,7 +43,7 @@ while not board.have_won() and not board.have_lose():
     max_row = -1
     for column in range(width):
         for row in range(height):
-            if patches[column][row] == 9:
+            if patches[row][column] == 9:
                 list_neighbours = []
 
                 for neigh in neighbours:
@@ -60,7 +60,10 @@ while not board.have_won() and not board.have_lose():
                     max_confidence = confidence
                     max_row = row
                     max_column = column
-    patches[max_column][max_row] = board.click(max_row, max_column)
+    #         print(column, row, confidence)
+    #         print("\t", patches)
+    print('#'*8, max_row, max_column, max_confidence)
+    patches[max_row][max_column] = board.click(max_column, max_row)
 
 print(board)
 if board.have_won():
